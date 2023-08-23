@@ -156,6 +156,7 @@ resource "aws_ecr_repository" "msafrontend" {
 }
 
 # EKS cluster
+# Policy AmazonEKSClusterPolicy, AmazonEKSVPCResourceController
 data "aws_iam_role" "eksclusterrole" {
   name = "AmazonEKSClusterRole"
 }
@@ -174,6 +175,7 @@ resource "aws_eks_addon" "this" {
   addon_name = local.eks_add_ons[count.index]
 }
 
+# Policy AmazonEC2ContainerRegistryReadOnly, AmazonEKS_CNI_Policy, AmazonEKSWorkerNodePolicy
 data "aws_iam_role" "eksnoderole" {
   name = "AWSEKSNodeGroup"
 }
