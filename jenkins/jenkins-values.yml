@@ -1,0 +1,30 @@
+controller:
+  resources:
+    limits:
+      cpu: '1'
+      memory: 1Gi
+  initContainerResources:
+    limits:
+      cpu: "1"
+      memory: "1Gi"
+  ingress:
+    enabled: true
+    hostName: jkci-223104de.nip.io
+    paths:
+    - backend:
+        service:
+          name: jenkins
+          port:
+            number: 8080
+      pathType: Prefix
+      path: /
+    annotations:
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-origin: "https://github.com"
+      nginx.ingress.kubernetes.io/whitelist-source-range: "115.79.196.39/32"
+persistence:
+  storageClass: standard
+agent:
+  enabled: false
+serviceAccount:
+  create: false

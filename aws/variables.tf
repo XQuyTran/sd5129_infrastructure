@@ -39,15 +39,15 @@ variable "private_subnet_tags" {
   description = "(Optional) A map of tags to assign to the resource."
 }
 
-variable "ssh_key_name" {
-  type        = string
-  description = "(Optional) The name for the key pair. If neither key_name nor key_name_prefix is provided, Terraform will create a unique key name using the prefix terraform-."
-}
+# variable "ssh_key_name" {
+#   type        = string
+#   description = "(Optional) The name for the key pair. If neither key_name nor key_name_prefix is provided, Terraform will create a unique key name using the prefix terraform-."
+# }
 
-variable "public_key" {
-  type        = string
-  description = "(Required) The public key material"
-}
+# variable "public_key" {
+#   type        = string
+#   description = "(Required) The public key material"
+# }
 
 variable "public_acl_ingress" {
   type        = list(map(string))
@@ -55,22 +55,22 @@ variable "public_acl_ingress" {
   description = "(Optional) Specifies an ingress rule."
 }
 
-variable "root_volume_size" {
-  type        = number
-  default     = null
-  description = "(Optional) Size of the volume in gibibytes (GiB)."
-}
+# variable "root_volume_size" {
+#   type        = number
+#   default     = null
+#   description = "(Optional) Size of the volume in gibibytes (GiB)."
+# }
 
-variable "ami" {
-  type        = string
-  description = "AMI to use for the instance."
-}
+# variable "ami" {
+#   type        = string
+#   description = "AMI to use for the instance."
+# }
 
-variable "sg_ingress" {
-  type        = list(map(string))
-  default     = []
-  description = "(Optional) Specifies an ingress rule."
-}
+# variable "sg_ingress" {
+#   type        = list(map(string))
+#   default     = []
+#   description = "(Optional) Specifies an ingress rule."
+# }
 
 variable "eks_cluster_name" {
   type        = string
